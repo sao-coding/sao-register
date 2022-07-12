@@ -18,7 +18,7 @@
     animation: flashOpen 1s ease alternate
 }
 
-form{
+form {
     width: 400px;
 }
 
@@ -79,7 +79,7 @@ form{
     background: #2f79d4;
     text-align: center;
     border-radius: 50%;
-    font-size: 18px;
+    font-size: 16px;
     color: #fff;
     display: block;
     width: 30px;
