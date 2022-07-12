@@ -84,7 +84,8 @@
     display: block;
     width: 30px;
     height: 30px;
-    margin: 2px
+    margin: 2px;
+    border: none
 }
 
 .notify-cancel {
@@ -108,7 +109,8 @@
     display: block;
     width: 30px;
     height: 30px;
-    margin: 2px
+    margin: 2px;
+    border: none
 }
 
 .notify-receive {
