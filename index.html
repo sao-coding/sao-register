@@ -14,52 +14,69 @@
   <script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/js/materialize.min.js'></script>
   <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js'></script>
   <script src="./script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script type="module" src="./sao.js"></script>
+  <!-- <script src="node_modules/sao-ui-test/lib/sao-ui.common.js" ></script> -->
+  <script>
+
+
+  </script>
+  </script>
 </head>
 
 
-  <!-- partial:index.partial.html -->
+<!-- partial:index.partial.html -->
 
-  <body ng-controller="RegisterCtrl" ng-app="myApp">
-    <div id="bg" class="bg">
-      <div class="container">
-        <div id="signup">
-          <div class="signup-screen">
-            <div class="space-bot text-center">
-              <h1>Sword Art Online</h1>
-            </div>
-            <form class="form-register" method="post" name="register" novalidate>
-              <div class="input-field col s6">
-                <input id="name" type="text" class="validate" required>
-                <label for="name">名字</label>
-              </div>
-              <div class="input-field col s6">
-                <input id="email" type="email" name="email" ng-model="email" class="validate" required>
-                <label for="email">電子郵件</label>
-              </div>
-              <p class="alert alert-danger" ng-show="form-register.email.$error.email">Your email is invalid.</p>
-              <div class="input-field col s6">
-                <input id="password" type="password" name="password" ng-model="password" ng-minlength='6'
-                  class="validate" required>
-                <label for="password">密碼</label>
-              </div>
-              <p class="alert alert-danger" ng-show="form-register.password.$error.minlength || form.password.$invalid">
-                Your password must be at least 6 characters.</p>
-              <div class="space-top text-center">
-                <button ng-disabled="form-register.$invalid" class="waves-effect waves-light btn done">
-                  <i class="material-icons left">done</i> 參加抽資格
-                </button>
-                <button type="button" class="waves-effect waves-light btn cancel">
-                  <i class="material-icons left">clear</i>取消
-                </button>
-              </div>
-            </form>
+<body ng-controller="RegisterCtrl" ng-app="myApp">
+  <div id="bg" class="bg">
+    <div class="container">
+      <div id="signup">
+        <div class="signup-screen">
+          <div class="space-bot text-center">
+            <h1>Sword Art Online</h1>
           </div>
+          <form class="form-register" method="post" name="register" novalidate>
+            <div class="input-field col s6">
+              <input id="name" type="text" class="validate" required>
+              <label for="name">名字</label>
+            </div>
+            <div class="input-field col s6">
+              <input id="email" type="email" name="email" ng-model="email" class="validate" required>
+              <label for="email">電子郵件</label>
+            </div>
+            <p class="alert alert-danger" ng-show="form-register.email.$error.email">Your email is invalid.
+            </p>
+            <div class="input-field col s6">
+              <input id="password" type="password" name="password" ng-model="password" ng-minlength='6' class="validate"
+                required>
+              <label for="password">密碼</label>
+            </div>
+            <p class="alert alert-danger" ng-show="form-register.password.$error.minlength || form.password.$invalid">
+              Your password must be at least 6 characters.</p>
+            <div class="space-top text-center">
+              <button ng-disabled="form-register.$invalid" class="waves-effect waves-light btn done">
+                <i class="material-icons left">done</i> 參加抽資格
+              </button>
+              <button type="button" class="waves-effect waves-light btn cancel">
+                <i class="material-icons left">clear</i>取消
+              </button>
+            </div>
+          </form>
         </div>
       </div>
     </div>
-  </body>
+  </div>
 
-
-
+  <template>
+    <div>
+      <button @click="open">Alert</button>
+      <sao-alert :icon="true" :title="title" :visible.sync="AlertVisible">
+        {{msg}}
+      </sao-alert>
+    </div>
+  </template>
+  <style scoped>
+  </style>
+</body>
 
 </html>
