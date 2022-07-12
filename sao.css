@@ -1,7 +1,7 @@
 #SAO-Notify {
     z-index: 9999;
     background: rgba(204, 204, 207, 0.8);
-    font-family: 'SAOUI', Langar, -apple-system, sans-serif;
+    font-family: 'SAOUI', 'SAO', Langar, -apple-system, sans-serif;
     font-weight: bolder;
     text-shadow: 0.5px 0.5px 0.5px#888;
     height: 340px;
