@@ -18,8 +18,8 @@
     animation: flashOpen 1s ease alternate
 }
 
-form {
-    width: 400px;
+.form {
+    width: 300px;
 }
 
 .notify-title {

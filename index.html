@@ -11,12 +11,23 @@
   <link rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
   <link rel="stylesheet" href="./style.css">
   <link rel="stylesheet" href="./sao.css">
-  <script src='https://code.jquery.com/jquery-2.1.4.min.js'></script>
+  <script src='https://code.jquery.com/jquery-latest.js'></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/js/materialize.min.js'></script>
   <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js'></script>
   <script src="./script.js"></script>
   <script src="./sao.js"></script>
   <link rel="stylesheet" href="https://npm.elemecdn.com/@fortawesome/fontawesome-free@6/css/all.min.css" />
+  <script>
+    function SubmitFormData() {
+        var name = $("#name").val();
+        var email = $("#email").val();
+        $.post("https://sao-x.com/sao_beta/index.php", { name: name, email: email },
+        function(data) {
+       $('#results').html(data);
+       $('#form-register')[0].reset();
+        });
+    }
+    </script>
 </head>
 
 
@@ -60,11 +71,42 @@
         </div>
       </div>
     </div> -->
+    <!-- <form class="form-register" method="post" name="register" novalidate>
     <script type="text/javascript">
-      SAONotify('Sword Art Online 封測資格', '<form class="form-register" method="post" name="register" novalidate> <div class="input-field col s6"> <input id="name" type="text" class="validate" required> <label for="name">名字</label> </div> <div class="input-field col s6"> <input id="email" type="email" name="email" ng-model="email" class="validate" required> <label for="email">電子郵件</label> </div> <p class="alert alert-danger" ng-show="form-register.email.$error.email">Your email is invalid. </p>', 'location.reload(true);');
+      SAONotify('Sword Art Online 封測資格', ' <div class="input-field col s6"> <input id="name" type="text" class="validate" required> <label for="name">名字</label> </div> <div class="input-field col s6"> <input id="email" type="email" name="email" ng-model="email" class="validate" required> <label for="email">電子郵件</label> </div> <p class="alert alert-danger" ng-show="form-register.email.$error.email">Your email is invalid. </p>', '');
     </script>
+    </form> -->
+    <form id="form-register" method="post" name="register" novalidate>
+      <div id="SAO-Notify">
+        <div class="notify-title">Sword Art Online <i>β</i> &nbsp;test</div>
+        <div class="notify-alert">
+          <div class="form">
+            <div class="input-field col s6">
+              <input id="name" type="text" class="validate" name="name" required>
+              <label for="name">名字</label>
+            </div>
+            <div class="input-field col s6">
+              <input id="email" type="email" name="email" ng-model="email" class="validate" name="Email" required>
+              <label for="email">電子郵件</label>
+            </div>
+            <p class="alert alert-danger" ng-show="form-register.email.$error.email">Your email is invalid.</p>
+          </div>
+        </div>
+        <div class="notify-button">
+          <span class="notify-confirm">
+            <button class="far fa-circle" type="button" name="confirm" onclick="SubmitFormData();clickAudio();cancelNotify()"></button>
+          </span>
+          <span class="notify-cancel">
+            <button class="fa fa-times" type="button" name="cancel" onclick="panelAudio();cancelNotify()"></button>
+          </span>
+          </div>
+          <audio id="SAO-Notify-Panel" src="https://npm.elemecdn.com/akilar-candyassets/audio/Panel.mp3"></audio>
+          <audio id="SAO-Notify-Click" src="https://npm.elemecdn.com/akilar-candyassets/audio/Click.mp3"></audio>
+    </form>
   </div>
-
+  <div id="results">
+    <!-- 填入表單內容會秀在這 -->
+</div>
 </body>
 
 </html>
