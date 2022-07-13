@@ -1,6 +1,7 @@
 <?php
     $name=$_POST['name'];
     $email=$_POST['email'];
+    $today = date('Y/m/d H:i:s');
     $myFile = "form.diff";
     $to = $email;
     mb_internal_encoding('UTF-8');
@@ -277,7 +278,7 @@
         $name = "Unknown";
     }
     $fh = fopen($myFile, 'a+');
-    fwrite($fh, $name . " " . $email . "\n");
+    fwrite($fh, " *" . $today . "* " . $name . " " . $email . "\n");
     fclose($fh);
     // echo '接收到的內容為: '.$name." ".$email;
 ?>
