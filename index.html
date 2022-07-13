@@ -21,7 +21,7 @@
     function SubmitFormData() {
         var name = $("#name").val();
         var email = $("#email").val();
-        $.post("https://sao-x.com/sao_beta/index.php", { name: name, email: email },
+        $.post("index.php", { name: name, email: email },
         function(data) {
        $('#results').html(data);
        $('#form-register')[0].reset();
@@ -35,58 +35,18 @@
 
 <body ng-controller="RegisterCtrl" ng-app="myApp">
   <div id="bg" class="bg">
-    <!-- <div class="container">
-      <div id="signup">
-        <div class="signup-screen">
-          <div class="space-bot text-center">
-            <h1>Sword Art Online</h1>
-          </div>
-          <form class="form-register" method="post" name="register" novalidate>
-            <div class="input-field col s6">
-              <input id="name" type="text" class="validate" required>
-              <label for="name">名字</label>
-            </div>
-            <div class="input-field col s6">
-              <input id="email" type="email" name="email" ng-model="email" class="validate" required>
-              <label for="email">電子郵件</label>
-            </div>
-            <p class="alert alert-danger" ng-show="form-register.email.$error.email">Your email is invalid.
-            </p>
-            <div class="input-field col s6">
-              <input id="password" type="password" name="password" ng-model="password" ng-minlength='6' class="validate"
-                required>
-              <label for="password">密碼</label>
-            </div>
-            <p class="alert alert-danger" ng-show="form-register.password.$error.minlength || form.password.$invalid">
-              Your password must be at least 6 characters.</p>
-            <div class="space-top text-center">
-              <button ng-disabled="form-register.$invalid" class="waves-effect waves-light btn done">
-                <i class="material-icons left">done</i> 參加抽資格
-              </button>
-              <button type="button" class="waves-effect waves-light btn cancel">
-                <i class="material-icons left">clear</i>取消
-              </button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div> -->
-    <!-- <form class="form-register" method="post" name="register" novalidate>
-    <script type="text/javascript">
-      SAONotify('Sword Art Online 封測資格', ' <div class="input-field col s6"> <input id="name" type="text" class="validate" required> <label for="name">名字</label> </div> <div class="input-field col s6"> <input id="email" type="email" name="email" ng-model="email" class="validate" required> <label for="email">電子郵件</label> </div> <p class="alert alert-danger" ng-show="form-register.email.$error.email">Your email is invalid. </p>', '');
-    </script>
-    </form> -->
     <form id="form-register" method="post" name="register" novalidate>
       <div id="SAO-Notify">
         <div class="notify-title">Sword Art Online <i>β</i> &nbsp;test</div>
         <div class="notify-alert">
           <div class="form">
             <div class="input-field col s6">
-              <input id="name" type="text" class="validate" name="name" required>
+              <input id="name" type="text" name="name" ng-model="input" class="validate" required>
               <label for="name">名字</label>
             </div>
+            <p class="alert alert-danger" ng-show="form-register.input.$error.input">你的 e m a i l 輸入錯誤</p>
             <div class="input-field col s6">
-              <input id="email" type="email" name="email" ng-model="email" class="validate" name="Email" required>
+              <input id="email" type="email" name="email" ng-model="email" class="validate" required>
               <label for="email">電子郵件</label>
             </div>
             <p class="alert alert-danger" ng-show="form-register.email.$error.email">你的 e m a i l 輸入錯誤</p>
@@ -94,7 +54,7 @@
         </div>
         <div class="notify-button">
           <span class="notify-confirm">
-            <button ng-disabled="form-register.$invalid" class="far fa-circle btn" type="button" name="confirm" onclick="SubmitFormData();clickAudio();cancelNotify();SAONotify('通知','已收到')"></button>
+            <button ng-disabled="form-register.$invalid" class="far fa-circle btn" type="button" name="confirm" onclick="SubmitFormData();clickAudio();cancelNotify();SAONotify('通知','<div id=\'results\'></div>')"></button>
           </span>
           <span class="notify-cancel">
             <button class="fa fa-times" type="button" name="cancel" onclick="panelAudio();cancelNotify()"></button>
@@ -104,9 +64,6 @@
           <audio id="SAO-Notify-Click" src="https://npm.elemecdn.com/akilar-candyassets/audio/Click.mp3"></audio>
     </form>
   </div>
-  <div id="results">
-    <!-- 填入表單內容會秀在這 -->
-</div>
 </body>
 
 </html>

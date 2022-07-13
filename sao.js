@@ -14,8 +14,9 @@ function SAONotify(title,message,action){
       var template =`<div id="SAO-Notify"><style>` + tempstyle +`</style><div class="notify-title">` + `${title}` + `</div><div class="notify-alert"> `+ `${message}` + `</div><div class="notify-button"><span class="notify-receive"><button class="fas fa-check" type="button" name="receive" onclick="panelAudio();cancelNotify()"></button></span></div><audio id="SAO-Notify-Panel" src="https://npm.elemecdn.com/akilar-candyassets/audio/Panel.mp3"></audio><audio id="SAO-Notify-Click" src="https://npm.elemecdn.com/akilar-candyassets/audio/Click.mp3"></audio>
       </div>`
     };
-  
-    document.body.insertAdjacentHTML('beforeend',template);
+    setTimeout(function () {
+      document.body.insertAdjacentHTML('beforeend',template);
+    }, 1000);
   }
 // //Syntax1:
 // let user = form.elements[0];
